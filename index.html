@@ -4,29 +4,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Plugfam Video Downloader</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Login Page</title>
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-container input[type="submit"] {
+      padding: 0.5rem;
+      background-color: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #1669c1;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .divider span {
+      background-color: #fff;
+      padding: 0 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .signup-link a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div class="container mt-5">
-    <h2 class="text-center">Plugfam Video Downloader</h2>
-    <form id="download-form">
-      <div class="form-group">
-        <label for="videoURL">http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co:</label>
-        <input type="text" class="form-control" id="http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co" placeholder="Enter YouTube video URL" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Download</button>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <input type="email" name="email" value="user@example.com" required />
+      <input type="password" name="password" value="password123" required />
+      <input type="submit" value="Login" />
     </form>
+
+    <div class="divider"><span>or</span></div>
+
+    <!-- Google Sign-In Button -->
+    <div id="g_id_onload"
+         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+
+    <div class="signup-link">
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
   </div>
 
   <script>
-    document.getElementById('download-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const videoURL = document.getElementById('http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co').value;
-      if (videoURL) {
-        window.location.href = `/download?videoURL=encodeURIComponent(http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co)`;
-      );
+    function handleCredentialResponse(response) {
+      // Decode credential response
+      console.log("Encoded JWT ID token: " + response.credential);
+      // You can send the token to your server for verification and authentication
+    }
   </script>
 </body>
 </html>
-“`
+```
+
+
+---
