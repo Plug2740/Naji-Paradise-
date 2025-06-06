@@ -12,8 +12,8 @@
     <h2 class="text-center">Plugfam Video Downloader</h2>
     <form id="download-form">
       <div class="form-group">
-        <label for="videoURL">YouTube Video URL:</label>
-        <input type="text" class="form-control" id="videoURL" placeholder="Enter YouTube video URL" required>
+        <label for="videoURL">http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co:</label>
+        <input type="text" class="form-control" id="http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co" placeholder="Enter YouTube video URL" required>
       </div>
       <button type="submit" class="btn btn-primary">Download</button>
     </form>
@@ -22,9 +22,9 @@
   <script>
     document.getElementById('download-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const videoURL = document.getElementById('videoURL').value;
+      const videoURL = document.getElementById('http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co').value;
       if (videoURL) {
-        window.location.href = `/download?videoURL=encodeURIComponent(videoURL)`;
+        window.location.href = `/download?videoURL=encodeURIComponent(http://sharevideo1.com/v/M3ByVk1hMEtaRUE=?t=ytb&f=co)`;
       );
   </script>
 </body>
