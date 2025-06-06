@@ -20,3 +20,13 @@
   </div>
 
   <script>
+    document.getElementById('download-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const videoURL = document.getElementById('videoURL').value;
+      if (videoURL) {
+        window.location.href = `/download?videoURL=encodeURIComponent(videoURL)`;
+      );
+  </script>
+</body>
+</html>
+“`
